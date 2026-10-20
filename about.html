@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="portal.nav.about">ℹ️ 关于本课程</title>
+  <script src="assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="i18n.css" />
+  <script type="module" src="i18n.js"></script>
+</head>
+<body>
+  <nav class="nav course-topbar">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandMark" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6366f1" />
+            <stop offset="1" stop-color="#22d3ee" />
+          </linearGradient>
+        </defs>
+        <rect width="32" height="32" rx="9" fill="url(#brandMark)" />
+        <g fill="#ffffff" opacity="0.95">
+          <rect x="7.5" y="17" width="4.2" height="8" rx="1.4" />
+          <rect x="13.9" y="11" width="4.2" height="14" rx="1.4" />
+          <rect x="20.3" y="14" width="4.2" height="11" rx="1.4" />
+        </g>
+        <circle cx="23" cy="8.4" r="2.5" fill="#ffffff" />
+      </svg>
+      <span data-lang="zh-CN">可视化导论</span>
+      <span data-lang="en-US" hidden>Visualization</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html"><span data-lang="zh-CN">🗺️ 知识地图</span><span data-lang="en-US" hidden>🗺️ Map</span></a></li>
+      <li><a href="stats.html" data-i18n="portal.nav.stats">📊 数据</a></li>
+      <li><a href="chapters.html" data-i18n="portal.nav.chapters">📚 章节</a></li>
+      <li><a href="howto.html" data-i18n="portal.nav.howto">▶️ 使用方式</a></li>
+      <li><a href="about.html" class="active" data-i18n="portal.nav.about">ℹ️ 关于</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about" class="section">
+      <h2><span data-lang="zh-CN">ℹ️ 关于本课程</span><span data-lang="en-US" hidden>ℹ️ About</span></h2>
+      <div class="about">
+        <div class="about-item">
+          <h4 data-i18n="portal.about.theory">📖 理论来源</h4>
+          <p data-i18n="portal.about.theory.desc">陈为《可视化导论》、Mackinlay 1986、Stevens 1946、Cleveland 1984、Bostock D3 官方文档、Card 1999 数据流模型。</p>
+        </div>
+        <div class="about-item">
+          <h4 data-i18n="portal.about.principle">🎯 设计原则</h4>
+          <p data-i18n="portal.about.principle.desc"><strong>案例为中心</strong>（不是理论为中心）。每个知识点都嵌入到用户的实践案例里，配 ⭐ 关键点解释 + 可运行演示。</p>
+        </div>
+        <div class="about-item">
+          <h4 data-i18n="portal.about.stack">🛠️ 技术栈</h4>
+          <p data-i18n="portal.about.stack.desc">零依赖：纯 HTML + CSS + ES modules + D3.js v7 (CDN)。本地一条命令 <code>python -m http.server</code> 启动，无需 npm。</p>
+        </div>
+        <div class="about-item">
+          <h4 data-i18n="portal.about.data">📦 数据集</h4>
+          <p data-i18n="portal.about.data.desc">新生数据 CSV 与 Crime 数据等都已打包进 <code>data/</code> 目录，浏览器 fetch 加载，离线可用。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n-html="footer.copyright">© 2026 《可视化导论》课程 · 中国石油大学（华东）· 授课教师：<a href="https://cinger007.github.io" target="_blank" rel="noopener" class="teacher-link">李昕</a> · 主要参考教材：陈为《可视化导论》</p>
+    <p class="footer-meta" data-i18n="footer.meta">零依赖 · D3.js v7 · 部署于 WorkBuddy Sites</p>
+  </footer>
+
+  <script src="assets/portal.js?v=3"></script>
+</body>
+</html>

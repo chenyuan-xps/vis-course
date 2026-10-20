@@ -1,0 +1,210 @@
+/* =============================================================
+ * enhance.css — 章节学习体验增强样式（配合 assets/enhance.js）
+ * 仅新增组件样式，不覆盖原有讲解/代码/演示排版
+ * ============================================================= */
+
+/* ---------- 章节主题色变量（enhance.js 按顶栏 data-current 写到 body） ---------- */
+body[data-chapter="1"] { --ls-accent:#2563eb; --ls-accent-deep:#1d4ed8; --ls-accent-soft:#dbeafe; --ls-accent-tint:#eff6ff; --ls-accent-ring:rgba(37,99,235,.16); }
+body[data-chapter="2"] { --ls-accent:#7c3aed; --ls-accent-deep:#6d28d9; --ls-accent-soft:#ede9fe; --ls-accent-tint:#f5f3ff; --ls-accent-ring:rgba(124,58,237,.16); }
+body[data-chapter="3"] { --ls-accent:#db2777; --ls-accent-deep:#be185d; --ls-accent-soft:#fce7f3; --ls-accent-tint:#fdf2f8; --ls-accent-ring:rgba(219,39,119,.16); }
+body[data-chapter="4"] { --ls-accent:#ea580c; --ls-accent-deep:#c2410c; --ls-accent-soft:#ffedd5; --ls-accent-tint:#fff7ed; --ls-accent-ring:rgba(234,88,12,.16); }
+body[data-chapter="5"] { --ls-accent:#059669; --ls-accent-deep:#047857; --ls-accent-soft:#d1fae5; --ls-accent-tint:#ecfdf5; --ls-accent-ring:rgba(5,150,105,.16); }
+
+/* ---------- 顶部学习进度条 ---------- */
+.ls-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 1000;
+  background: rgba(226, 232, 240, 0.6);
+  pointer-events: none;
+}
+.ls-progress i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--ls-accent, #2563eb), var(--ls-accent-deep, #1d4ed8));
+  transition: width 0.35s ease;
+}
+
+/* ---------- 小节步进器 ---------- */
+.ls-stepper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px 32px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ls-steps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 6px 10px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+.ls-step button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 0;
+  padding: 5px 9px;
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-family: inherit;
+  color: #64748b;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.ls-step button:hover { background: var(--ls-accent-tint, #eef2ff); color: var(--ls-accent-deep, #4338ca); }
+.ls-dot {
+  width: 22px; height: 22px;
+  flex: none;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #e2e8f0;
+  color: #475569;
+  transition: all 0.2s;
+}
+.ls-step.done .ls-dot { background: #bbf7d0; color: #166534; }
+.ls-step.active .ls-dot {
+  background: var(--ls-accent, #2563eb);
+  color: #fff;
+  box-shadow: 0 0 0 4px var(--ls-accent-ring, rgba(37, 99, 235, 0.16));
+}
+.ls-step.active .ls-label { color: var(--ls-accent-deep, #1d4ed8); font-weight: 700; }
+.ls-sep {
+  width: 14px; height: 2px;
+  background: #e2e8f0;
+  border-radius: 1px;
+  flex: none;
+}
+.ls-count {
+  font-size: 12px;
+  color: #475569;
+  background: #f1f5f9;
+  padding: 5px 12px;
+  border-radius: 14px;
+  white-space: nowrap;
+}
+.ls-count b { color: var(--ls-accent-deep, #1d4ed8); }
+
+/* ---------- 每节底部导航 ---------- */
+.ls-footnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px dashed #e2e8f0;
+}
+.ls-footnav button {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ls-footnav button:hover:not(:disabled) {
+  border-color: var(--ls-accent, #2563eb);
+  color: var(--ls-accent-deep, #1d4ed8);
+  background: var(--ls-accent-tint, #eff6ff);
+  box-shadow: 0 2px 8px var(--ls-accent-ring, rgba(37, 99, 235, 0.12));
+}
+.ls-footnav button:disabled { opacity: 0.35; cursor: not-allowed; }
+.ls-idx { font-size: 13px; color: #64748b; font-weight: 600; }
+
+/* ---------- 回到顶部 ---------- */
+.ls-top {
+  position: fixed;
+  right: 22px; bottom: 28px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: var(--ls-accent, #2563eb);
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 999;
+}
+.ls-top.show { opacity: 1; pointer-events: auto; }
+.ls-top:hover { background: var(--ls-accent-tint, #eff6ff); transform: translateY(-2px); }
+
+/* ---------- 阅读体验微调（不破坏原有排版） ---------- */
+.chapter { animation: ls-fade 0.25s ease; }
+@keyframes ls-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+pre { position: relative; }
+pre:hover { box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18); transition: box-shadow 0.2s; }
+
+@media (max-width: 760px) {
+  .ls-stepper { padding: 12px 16px 0; }
+  .ls-step .ls-label { display: none; }
+  .ls-step button { padding: 5px; }
+}
+
+/* =============================================================
+ * 章节主题色贯穿层：本文件在 lesson styles.css 之后加载，
+ * 用同特异度后置规则覆盖各章硬编码的 ch1 蓝，使 5 章各自成色。
+ * ============================================================= */
+.lesson-header { border-bottom-color: var(--ls-accent, #2563eb); }
+.chapter-nav a.active {
+  background: var(--ls-accent-soft, #eff6ff);
+  color: var(--ls-accent-deep, #1d4ed8);
+  border-left-color: var(--ls-accent, #2563eb);
+}
+.chapter-nav a:hover { background: var(--ls-accent-tint, #f1f5f9); }
+.tab-btn.active {
+  color: var(--ls-accent, #2563eb);
+  border-bottom-color: var(--ls-accent, #2563eb);
+}
+.course-topbar .brand {
+  background: var(--ls-accent-soft, #eef2ff);
+  color: var(--ls-accent-deep, #4338ca);
+}
+.course-topbar .brand:hover { background: var(--ls-accent, #4338ca); color: #fff; }
+.course-topbar ul.tabs a.current { background: var(--ls-accent, #4338ca); }
+.demo-btn { background: var(--ls-accent, #2563eb); }
+.demo-btn:hover { background: var(--ls-accent-deep, #1d4ed8); }
+
+/* ---------- 键盘焦点态（可访问性） ---------- */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--ls-accent, #4338ca);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ---------- 降低动态偏好（可访问性） ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .chapter { animation: none; }
+  .tab-panel { animation: none; }
+  .ls-progress i,
+  .ls-top,
+  .ls-step button,
+  .ls-footnav button { transition: none; }
+  .ls-top:hover { transform: none; }
+}
