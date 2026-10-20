@@ -4,48 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="portal.title">《可视化导论》课程门户</title>
-  <!-- 已看过开屏 → 首屏直接不渲染，避免闪现 -->
-  <script>
-    (function () {
-      try {
-        if (localStorage.getItem('wbl-splash') === '1') {
-          document.documentElement.setAttribute('data-splash', 'skip');
-        }
-      } catch (e) {}
-    })();
-  </script>
   <script src="assets/theme.js?v=3"></script>
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=5" />
   <link rel="stylesheet" href="i18n.css" />
-  <script type="module" src="i18n.js"></script>
+  <script type="module" src="i18n.js?v=5"></script>
 </head>
 <body>
-  <!-- ============ 开屏动画（仅首次访问播放一次，点击可跳过） ============ -->
-  <div class="splash" id="splash">
-    <div class="splash-inner">
-      <p class="splash-tag" data-i18n="portal.hero.tag">VISUALIZATION · INTRODUCTION</p>
-      <h1 data-i18n="portal.hero.h1">《可视化导论》</h1>
-      <p class="splash-sub" data-i18n="portal.hero.subtitle">从数据到图表：JavaScript + D3.js 实战课程</p>
-      <svg class="flow-svg" viewBox="0 0 760 320" role="img" aria-label="数据到可视化的流程">
-        <path d="M30 160 H730" stroke="rgba(255,255,255,0.35)" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
-        <g class="flow-stage"><rect x="20"  y="138" width="150" height="44" rx="10"/><text x="95"  y="165">数据 · Data</text></g>
-        <g class="flow-stage"><rect x="210" y="138" width="150" height="44" rx="10"/><text x="285" y="165">变换 · Transform</text></g>
-        <g class="flow-stage"><rect x="400" y="138" width="150" height="44" rx="10"/><text x="475" y="165">编码 · Encode</text></g>
-        <g class="flow-stage"><rect x="590" y="138" width="150" height="44" rx="10"/><text x="665" y="165">视图 · Render</text></g>
-        <circle class="flow-dot" r="5" fill="#fbbf24"><animateMotion dur="4.5s" repeatCount="indefinite" path="M30 160 H730"/></circle>
-        <circle class="flow-dot" r="5" fill="#34d399"><animateMotion dur="4.5s" begin="1.5s" repeatCount="indefinite" path="M30 160 H730"/></circle>
-        <circle class="flow-dot" r="5" fill="#f472b6"><animateMotion dur="4.5s" begin="3s" repeatCount="indefinite" path="M30 160 H730"/></circle>
-      </svg>
-    </div>
-  </div>
-
   <nav class="nav course-topbar">
     <a class="brand" href="index.html">
       <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
         <defs>
           <linearGradient id="brandMark" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#6366f1" />
-            <stop offset="1" stop-color="#22d3ee" />
+            <stop offset="0" stop-color="#477b98" />
+            <stop offset="1" stop-color="#8eb6c7" />
           </linearGradient>
         </defs>
         <rect width="32" height="32" rx="9" fill="url(#brandMark)" />
@@ -60,18 +31,37 @@
       <span data-lang="en-US" hidden>Visualization</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active"><span data-lang="zh-CN">🗺️ 知识地图</span><span data-lang="en-US" hidden>🗺️ Map</span></a></li>
-      <li><a href="stats.html" data-i18n="portal.nav.stats">📊 数据</a></li>
-      <li><a href="chapters.html" data-i18n="portal.nav.chapters">📚 章节</a></li>
-      <li><a href="howto.html" data-i18n="portal.nav.howto">▶️ 使用方式</a></li>
-      <li><a href="about.html" data-i18n="portal.nav.about">ℹ️ 关于</a></li>
+      <li><a href="index.html" class="active"><span data-lang="zh-CN">课程地图</span><span data-lang="en-US" hidden>Course map</span></a></li>
+      <li><a href="stats.html" data-i18n="portal.nav.stats">课程概览</a></li>
+      <li><a href="chapters.html" data-i18n="portal.nav.chapters">课程章节</a></li>
+      <li><a href="howto.html" data-i18n="portal.nav.howto">教学指南</a></li>
+      <li><a href="about.html" data-i18n="portal.nav.about">课程介绍</a></li>
     </ul>
   </nav>
 
   <main>
+    <section class="portal-hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span data-lang="zh-CN">数据思维 · 视觉表达 · 交互实践</span><span data-lang="en-US" hidden>DATA THINKING · VISUAL LANGUAGE · INTERACTION</span></p>
+        <h1 id="hero-title"><span data-lang="zh-CN">把数据，变成<br><em>看得懂的故事。</em></span><span data-lang="en-US" hidden>Turn data into<br><em>stories people understand.</em></span></h1>
+        <p class="hero-desc"><span data-lang="zh-CN">一门从数据基础到 D3.js 实战的可视化课程。沿着清晰的学习路径，理解为什么这样设计，并亲手把图表做出来。</span><span data-lang="en-US" hidden>A hands-on journey from data foundations to D3.js. Learn why visualizations work, then build them yourself.</span></p>
+        <div class="hero-actions"><a class="hero-primary" href="chapters.html"><span data-lang="zh-CN">开始学习</span><span data-lang="en-US" hidden>Start learning</span><span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#map"><span data-lang="zh-CN">查看学习路径</span><span data-lang="en-US" hidden>View the path</span></a></div>
+        <div class="hero-proof"><span class="proof-avatars"><i>01</i><i>02</i><i>03</i></span><span data-lang="zh-CN">5 个章节 · 27 个小节 · 可运行演示</span><span data-lang="en-US" hidden>5 chapters · 27 sections · Runnable demos</span></div>
+      </div>
+      <div class="hero-visual" aria-label="课程学习流程">
+        <div class="learning-flow">
+          <p class="flow-caption"><span data-lang="zh-CN">课程学习流程</span><span data-lang="en-US" hidden>LEARNING SEQUENCE</span><span class="flow-line"></span><span>01 — 03</span></p>
+          <div class="flow-step"><span class="flow-index">01</span><div><h2><span data-lang="zh-CN">理解数据</span><span data-lang="en-US" hidden>Understand data</span></h2><p><span data-lang="zh-CN">认识数据类型、尺度与结构</span><span data-lang="en-US" hidden>Types, scales and structure</span></p></div><span class="flow-arrow">↓</span></div>
+          <div class="flow-step"><span class="flow-index">02</span><div><h2><span data-lang="zh-CN">设计表达</span><span data-lang="en-US" hidden>Design the encoding</span></h2><p><span data-lang="zh-CN">选择合适的视觉通道与布局</span><span data-lang="en-US" hidden>Choose visual channels and layouts</span></p></div><span class="flow-arrow">↓</span></div>
+          <div class="flow-step"><span class="flow-index">03</span><div><h2><span data-lang="zh-CN">实现交互</span><span data-lang="en-US" hidden>Build interaction</span></h2><p><span data-lang="zh-CN">用 D3.js 完成可运行的图表</span><span data-lang="en-US" hidden>Build working charts with D3.js</span></p></div><span class="flow-arrow">✓</span></div>
+          <div class="flow-foot"><span data-lang="zh-CN">概念讲解</span><span data-lang="en-US" hidden>Concepts</span><i></i><span data-lang="zh-CN">关键代码</span><span data-lang="en-US" hidden>Code</span><i></i><span data-lang="zh-CN">动手演示</span><span data-lang="en-US" hidden>Practice</span></div>
+        </div>
+      </div>
+    </section>
     <!-- ============ 课程知识地图 ============ -->
     <section id="map" class="section">
-      <h2><span data-lang="zh-CN">🗺️ 课程知识地图</span><span data-lang="en-US" hidden>🗺️ Course Knowledge Map</span></h2>
+      <p class="section-kicker"><span data-lang="zh-CN">课程结构</span><span data-lang="en-US" hidden>COURSE STRUCTURE</span></p>
+      <h2><span data-lang="zh-CN">从数据到时间序列</span><span data-lang="en-US" hidden>From data to time series</span></h2>
       <p class="section-lead">
         <span data-lang="zh-CN">建议学习路径：第 1 → 2 → 4 → 5 章依次推进，第 3 章「色彩专题」可在任意阶段插入。每个知识点都对应章节内的小节，点击直达。</span>
         <span data-lang="en-US" hidden>Suggested path: Ch 1 → 2 → 4 → 5 in order; Ch 3 (Color) can be inserted anytime. Click any node to jump.</span>
@@ -85,12 +75,8 @@
   <footer>
     <p data-i18n-html="footer.copyright">© 2026 《可视化导论》课程 · 中国石油大学（华东）· 授课教师：<a href="https://cinger007.github.io" target="_blank" rel="noopener" class="teacher-link">李昕</a> · 主要参考教材：陈为《可视化导论》</p>
     <p class="footer-meta" data-i18n="footer.meta">零依赖 · D3.js v7 · 部署于 WorkBuddy Sites</p>
-    <button class="replay-splash" type="button" data-replay-splash>
-      <span data-lang="zh-CN">↻ 重播开屏动画</span>
-      <span data-lang="en-US" hidden>↻ Replay intro</span>
-    </button>
   </footer>
 
-  <script src="assets/portal.js?v=3"></script>
+  <script src="assets/portal.js?v=5"></script>
 </body>
 </html>

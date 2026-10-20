@@ -160,4 +160,24 @@
   syncLabels();
   sync();
   if (window.__i18n && typeof window.__i18n.apply === 'function') window.__i18n.apply();
+
+  // 学习工具箱：章节收藏、全局搜索与快捷键帮助
+  var bookmarkKey = 'vis-bookmarks';
+  var bookmark = document.createElement('button');
+  bookmark.className = 'lesson-tool lesson-bookmark'; bookmark.type = 'button'; bookmark.setAttribute('aria-label', 'Bookmark this section'); bookmark.innerHTML = '☆ <span>收藏本节</span>';
+  var headerTip = document.querySelector('.header-tip');
+  if (headerTip) headerTip.appendChild(bookmark);
+  function bookmarkId() { return location.pathname + '#' + current(); }
+  function readBookmarks() { try { return JSON.parse(localStorage.getItem(bookmarkKey) || '[]'); } catch (e) { return []; } }
+  function syncBookmark() { var saved = readBookmarks().indexOf(bookmarkId()) !== -1; bookmark.classList.toggle('is-saved', saved); bookmark.firstChild.nodeValue = saved ? '★ ' : '☆ '; }
+  bookmark.addEventListener('click', function () { var list = readBookmarks(), id = bookmarkId(), i = list.indexOf(id); if (i === -1) list.push(id); else list.splice(i, 1); try { localStorage.setItem(bookmarkKey, JSON.stringify(list)); } catch (e) {} syncBookmark(); });
+  document.addEventListener('ls:sync', syncBookmark); syncBookmark();
+
+  var palette = document.createElement('div'); palette.className = 'command-palette'; palette.innerHTML = '<div class="palette-backdrop"></div><div class="palette-panel" role="dialog" aria-modal="true"><div class="palette-search"><span>⌕</span><input placeholder="搜索本章小节…" aria-label="Search sections"></div><div class="palette-results"></div><div class="palette-hint">↑ ↓ 选择 · Enter 打开 · Esc 关闭</div></div>'; document.body.appendChild(palette);
+  var input = palette.querySelector('input'), results = palette.querySelector('.palette-results');
+  function openPalette() { palette.classList.add('is-open'); input.value = ''; drawResults(''); input.focus(); }
+  function closePalette() { palette.classList.remove('is-open'); }
+  function drawResults(q) { var term = q.toLowerCase(), matches = links.filter(function (a) { return a.textContent.toLowerCase().indexOf(term) !== -1; }); results.innerHTML = matches.map(function (a, i) { return '<button class="palette-item" data-target="' + a.dataset.chapter + '"><b>' + (i + 1) + '</b><span>' + a.textContent.trim() + '</span><small>↵</small></button>'; }).join('') || '<p class="palette-empty">没有找到匹配的小节</p>'; }
+  input.addEventListener('input', function () { drawResults(input.value); }); results.addEventListener('click', function (e) { var item = e.target.closest('.palette-item'); if (!item) return; closePalette(); var link = links.filter(function (a) { return a.dataset.chapter === item.dataset.target; })[0]; if (link) link.click(); });
+  palette.querySelector('.palette-backdrop').addEventListener('click', closePalette); document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openPalette(); } if (e.key === 'Escape') closePalette(); });
 })();

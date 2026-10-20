@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="portal.stats.title">📊 课程数据一览</title>
+  <title data-i18n="portal.stats.title">课程结构与规模</title>
   <script src="assets/theme.js?v=3"></script>
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=5" />
   <link rel="stylesheet" href="i18n.css" />
-  <script type="module" src="i18n.js"></script>
+  <script type="module" src="i18n.js?v=5"></script>
 </head>
 <body>
   <nav class="nav course-topbar">
@@ -15,8 +15,8 @@
       <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
         <defs>
           <linearGradient id="brandMark" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#6366f1" />
-            <stop offset="1" stop-color="#22d3ee" />
+            <stop offset="0" stop-color="#477b98" />
+            <stop offset="1" stop-color="#8eb6c7" />
           </linearGradient>
         </defs>
         <rect width="32" height="32" rx="9" fill="url(#brandMark)" />
@@ -31,22 +31,32 @@
       <span data-lang="en-US" hidden>Visualization</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html"><span data-lang="zh-CN">🗺️ 知识地图</span><span data-lang="en-US" hidden>🗺️ Map</span></a></li>
-      <li><a href="stats.html" class="active" data-i18n="portal.nav.stats">📊 数据</a></li>
-      <li><a href="chapters.html" data-i18n="portal.nav.chapters">📚 章节</a></li>
-      <li><a href="howto.html" data-i18n="portal.nav.howto">▶️ 使用方式</a></li>
-      <li><a href="about.html" data-i18n="portal.nav.about">ℹ️ 关于</a></li>
+      <li><a href="index.html"><span data-lang="zh-CN">课程地图</span><span data-lang="en-US" hidden>Course map</span></a></li>
+      <li><a href="stats.html" class="active" data-i18n="portal.nav.stats">课程概览</a></li>
+      <li><a href="chapters.html" data-i18n="portal.nav.chapters">课程章节</a></li>
+      <li><a href="howto.html" data-i18n="portal.nav.howto">教学指南</a></li>
+      <li><a href="about.html" data-i18n="portal.nav.about">课程介绍</a></li>
     </ul>
   </nav>
 
   <main>
     <section id="stats" class="section">
-      <h2 data-i18n="portal.stats.title">📊 课程数据一览</h2>
+      <p class="section-kicker"><span data-lang="zh-CN">课程概览</span><span data-lang="en-US" hidden>COURSE OVERVIEW</span></p>
+      <h2 data-i18n="portal.stats.title">课程结构与规模</h2>
       <p class="section-lead" data-i18n="portal.stats.lead">这门课程本身也是一份数据。条形长度 = 各章小节数，圆点个数 = 核心知识点数；点击任一行直达该章。</p>
       <div class="stats-wrap">
         <svg id="course-stats" viewBox="0 0 1000 330" role="img" aria-label="各章节小节数与知识点数统计图"></svg>
       </div>
-      <p class="stats-foot" data-i18n="portal.stats.total">合计：5 章 · 27 小节 · 21 个核心知识点 · 每节 3 个 tab（讲解 / 代码 / 演示）</p>
+      <p class="stats-foot" data-i18n="portal.stats.total">合计：5 章 · 27 小节 · 21 个核心知识点 · 每节 3 个学习环节（讲解 / 代码 / 演示）</p>
+    </section>
+    <section class="section stats-notes" aria-labelledby="structure-title">
+      <p class="section-kicker"><span data-lang="zh-CN">如何阅读</span><span data-lang="en-US" hidden>HOW TO READ</span></p>
+      <h2 id="structure-title"><span data-lang="zh-CN">课程结构说明</span><span data-lang="en-US" hidden>Reading the course structure</span></h2>
+      <div class="stats-note-grid">
+        <article><span>01</span><h3><span data-lang="zh-CN">章节长度</span><span data-lang="en-US" hidden>Chapter length</span></h3><p><span data-lang="zh-CN">条形长度表示每章小节数量，可点击图表中的章节直接进入学习。</span><span data-lang="en-US" hidden>Bar length shows the number of sections. Select a chapter in the chart to open it.</span></p></article>
+        <article><span>02</span><h3><span data-lang="zh-CN">知识覆盖</span><span data-lang="en-US" hidden>Knowledge coverage</span></h3><p><span data-lang="zh-CN">圆点表示核心知识点数量，用于快速比较各章内容密度。</span><span data-lang="en-US" hidden>Dots represent key concepts and help compare chapter coverage.</span></p></article>
+        <article><span>03</span><h3><span data-lang="zh-CN">学习形式</span><span data-lang="en-US" hidden>Learning activities</span></h3><p><span data-lang="zh-CN">每个小节包含概念讲解、关键代码和交互演示三个环节。</span><span data-lang="en-US" hidden>Each section combines concepts, key code, and an interactive demonstration.</span></p></article>
+      </div>
     </section>
   </main>
 
@@ -55,6 +65,6 @@
     <p class="footer-meta" data-i18n="footer.meta">零依赖 · D3.js v7 · 部署于 WorkBuddy Sites</p>
   </footer>
 
-  <script src="assets/portal.js?v=3"></script>
+  <script src="assets/portal.js?v=5"></script>
 </body>
 </html>

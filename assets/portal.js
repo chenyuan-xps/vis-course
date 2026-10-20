@@ -204,6 +204,26 @@
   }
 
   function renderAll() { renderMap(); renderStats(); renderTagPills(); }
+  var topButton = document.createElement('button');
+  topButton.className = 'back-to-top'; topButton.type = 'button'; topButton.setAttribute('aria-label', 'Back to top'); topButton.textContent = '↑';
+  document.body.appendChild(topButton);
+  function updateScrollState() { topButton.classList.toggle('is-visible', window.scrollY > 420); }
+  window.addEventListener('scroll', updateScrollState, { passive: true });
+  topButton.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  updateScrollState();
+
+  // 门户级快速启动：Ctrl/Cmd + K 搜索课程、章节和平台页面
+  var portalPalette = document.createElement('div');
+  portalPalette.className = 'portal-command-palette';
+  portalPalette.innerHTML = '<div class="portal-palette-backdrop"></div><div class="portal-palette-panel"><div class="portal-palette-search">⌕<input placeholder="搜索课程、章节或页面…" aria-label="Search the course portal"></div><div class="portal-palette-results"></div><div class="portal-palette-hint">Ctrl K 打开 · Esc 关闭</div></div>';
+  document.body.appendChild(portalPalette);
+  var portalInput = portalPalette.querySelector('input'), portalResults = portalPalette.querySelector('.portal-palette-results');
+  function portalItems() { var out = []; document.querySelectorAll('.nav-links a, .card.available').forEach(function (a) { out.push({ label: (a.textContent || '').replace(/\s+/g, ' ').trim(), href: a.href }); }); return out; }
+  function drawPortalResults(query) { var q = query.toLowerCase(), items = portalItems().filter(function (x) { return x.label.toLowerCase().indexOf(q) !== -1; }).slice(0, 12); portalResults.innerHTML = items.map(function (x) { return '<a class="portal-palette-item" href="' + x.href + '"><span>' + x.label + '</span><small>↗</small></a>'; }).join('') || '<p class="portal-palette-empty">没有找到匹配内容</p>'; }
+  function openPortalPalette() { portalPalette.classList.add('is-open'); portalInput.value = ''; drawPortalResults(''); portalInput.focus(); }
+  function closePortalPalette() { portalPalette.classList.remove('is-open'); }
+  var searchTrigger = document.createElement('button'); searchTrigger.className = 'portal-search-trigger'; searchTrigger.type = 'button'; searchTrigger.innerHTML = '⌕ <span>搜索</span><kbd>Ctrl K</kbd>'; searchTrigger.addEventListener('click', openPortalPalette); var portalNav = document.querySelector('.course-topbar'); if (portalNav) portalNav.appendChild(searchTrigger);
+  portalInput.addEventListener('input', function () { drawPortalResults(portalInput.value); }); portalPalette.querySelector('.portal-palette-backdrop').addEventListener('click', closePortalPalette); document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openPortalPalette(); } if (e.key === 'Escape') closePortalPalette(); });
 
   document.addEventListener('wbl:localechange', renderAll);
   if (window.__i18n) renderAll();

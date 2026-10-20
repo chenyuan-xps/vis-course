@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="portal.tagline">📚 课程章节</title>
+  <title data-i18n="portal.tagline">课程章节</title>
   <script src="assets/theme.js?v=3"></script>
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=5" />
   <link rel="stylesheet" href="i18n.css" />
-  <script type="module" src="i18n.js"></script>
+  <script type="module" src="i18n.js?v=5"></script>
 </head>
 <body>
   <nav class="nav course-topbar">
@@ -15,8 +15,8 @@
       <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
         <defs>
           <linearGradient id="brandMark" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#6366f1" />
-            <stop offset="1" stop-color="#22d3ee" />
+            <stop offset="0" stop-color="#477b98" />
+            <stop offset="1" stop-color="#8eb6c7" />
           </linearGradient>
         </defs>
         <rect width="32" height="32" rx="9" fill="url(#brandMark)" />
@@ -31,18 +31,31 @@
       <span data-lang="en-US" hidden>Visualization</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html"><span data-lang="zh-CN">🗺️ 知识地图</span><span data-lang="en-US" hidden>🗺️ Map</span></a></li>
-      <li><a href="stats.html" data-i18n="portal.nav.stats">📊 数据</a></li>
-      <li><a href="chapters.html" class="active" data-i18n="portal.nav.chapters">📚 章节</a></li>
-      <li><a href="howto.html" data-i18n="portal.nav.howto">▶️ 使用方式</a></li>
-      <li><a href="about.html" data-i18n="portal.nav.about">ℹ️ 关于</a></li>
+      <li><a href="index.html"><span data-lang="zh-CN">课程地图</span><span data-lang="en-US" hidden>Course map</span></a></li>
+      <li><a href="stats.html" data-i18n="portal.nav.stats">课程概览</a></li>
+      <li><a href="chapters.html" class="active" data-i18n="portal.nav.chapters">课程章节</a></li>
+      <li><a href="howto.html" data-i18n="portal.nav.howto">教学指南</a></li>
+      <li><a href="about.html" data-i18n="portal.nav.about">课程介绍</a></li>
     </ul>
   </nav>
 
   <main>
     <section id="chapters" class="section">
-      <h2 data-i18n="portal.tagline">📚 课程章节</h2>
-      <p class="section-lead" data-i18n="portal.intro">点击任一卡片进入该章节，每章节含 3 个 tab：📖 讲解 / ⌨️ 关键代码 / ▶️ 演示。</p>
+      <p class="section-kicker"><span data-lang="zh-CN">课程目录</span><span data-lang="en-US" hidden>COURSE CATALOG</span></p>
+      <h2 data-i18n="portal.tagline">课程章节</h2>
+      <p class="section-lead" data-i18n="portal.intro">选择章节学习概念、阅读关键代码并完成交互演示。</p>
+    </section>
+
+    <section class="section learning-path" aria-label="建议学习顺序">
+      <div class="path-panel">
+        <div><span class="section-kicker"><span data-lang="zh-CN">建议顺序</span><span data-lang="en-US" hidden>SUGGESTED SEQUENCE</span></span><h2><span data-lang="zh-CN">循序渐进，逐步建立可视化思维</span><span data-lang="en-US" hidden>Build visualization skills step by step</span></h2><p><span data-lang="zh-CN">主线从数据基础进入可视化流程，再学习低维表达与时序方法。</span><span data-lang="en-US" hidden>Start with data, then learn the visualization process, low dimensional views, and time series.</span></p></div>
+        <ol class="path-steps"><li><span>01</span><span data-lang="zh-CN">数据</span><span data-lang="en-US" hidden>Data</span></li><li><span>02</span><span data-lang="zh-CN">流程</span><span data-lang="en-US" hidden>Process</span></li><li><span>04</span><span data-lang="zh-CN">低维</span><span data-lang="en-US" hidden>Low dimensional</span></li><li><span>05</span><span data-lang="zh-CN">时序</span><span data-lang="en-US" hidden>Time series</span></li></ol>
+        <a class="path-supplement" href="lesson-03/"><span data-lang="zh-CN">补充专题：色彩</span><span data-lang="en-US" hidden>Additional topic: Color</span></a>
+      </div>
+    </section>
+
+    <section id="catalog" class="section">
+      <div class="catalog-heading"><h3><span data-lang="zh-CN">章节目录</span><span data-lang="en-US" hidden>Chapter catalog</span></h3><p><span data-lang="zh-CN">每章包含讲解、代码与演示</span><span data-lang="en-US" hidden>Each chapter includes concepts, code, and practice</span></p></div>
 
       <div class="cards">
         <!-- 第 1 章：数据 -->
@@ -55,10 +68,10 @@
             <rect x="180" y="34" width="9" height="44" rx="2.5" fill="#93c5fd"/>
             <rect x="194" y="48" width="9" height="30" rx="2.5" fill="#dbeafe"/>
           </svg>
-          <div class="card-status" data-i18n="common.live">✅ 已上线</div>
+          <div class="card-status" data-i18n="common.live">可学习</div>
           <div class="card-num" data-i18n="card-01.num">第 1 章</div>
           <h3 data-i18n="card-01.title">数据</h3>
-          <p class="card-meta"><span data-lang="zh-CN">5 小节 · 3 tab</span><span data-lang="en-US" hidden>5 sections · 3 tabs</span></p>
+          <p class="card-meta"><span data-lang="zh-CN">5 小节 · 3 个学习环节</span><span data-lang="en-US" hidden>5 sections · 3 learning activities</span></p>
           <p class="card-source"><span data-i18n="common.maps-to">对应你的文档：</span><strong>3. 数据</strong></p>
           <p class="card-desc" data-i18n="card-01.desc">从 DeepSeek 合成新生数据出发，展开数据生成、DIKW、Stevens 测量尺度、Mackinlay 视觉通道、D3 数据变换与 Data-Join 三态。</p>
           <ul class="card-tags" data-tags="card-01.tags"><li>DIKW 金字塔</li><li>Stevens 4 尺度</li><li>8 个 D3 变换函数</li><li>Selection 三态</li></ul>
@@ -80,10 +93,10 @@
             <circle cx="168" cy="58" r="6" fill="#a78bfa"/>
             <circle cx="168" cy="74" r="6" fill="#a78bfa"/>
           </svg>
-          <div class="card-status" data-i18n="common.live">✅ 已上线</div>
+          <div class="card-status" data-i18n="common.live">可学习</div>
           <div class="card-num" data-i18n="card-02.num">第 2 章</div>
           <h3 data-i18n="card-02.title">数据可视化流程</h3>
-          <p class="card-meta"><span data-lang="zh-CN">4 小节 · 3 tab</span><span data-lang="en-US" hidden>4 sections · 3 tabs</span></p>
+          <p class="card-meta"><span data-lang="zh-CN">4 小节 · 3 个学习环节</span><span data-lang="en-US" hidden>4 sections · 3 learning activities</span></p>
           <p class="card-source"><span data-i18n="common.maps-to">对应你的文档：</span><strong>4. 数据可视化流程</strong></p>
           <p class="card-desc" data-i18n="card-02.desc">Card 数据流模型、新生数据 → 分类树 → 树形列表的完整链路，Reingold-Tilford 布局、DOM 事件机制。</p>
           <ul class="card-tags" data-tags="card-02.tags"><li>Card 模型</li><li>d3.rollup</li><li>Reingold-Tilford</li><li>事件委托</li></ul>
@@ -100,10 +113,10 @@
             <rect x="175" y="14" width="15" height="62" rx="4" fill="#8b5cf6"/>
             <rect x="194" y="14" width="15" height="62" rx="4" fill="#06b6d4"/>
           </svg>
-          <div class="card-status" data-i18n="common.live">✅ 已上线</div>
+          <div class="card-status" data-i18n="common.live">可学习</div>
           <div class="card-num" data-i18n="card-03.num">第 3 章</div>
           <h3 data-i18n="card-03.title">色彩专题</h3>
-          <p class="card-meta"><span data-lang="zh-CN">8 小节 · 3 tab</span><span data-lang="en-US" hidden>8 sections · 3 tabs</span></p>
+          <p class="card-meta"><span data-lang="zh-CN">8 小节 · 3 个学习环节</span><span data-lang="en-US" hidden>8 sections · 3 learning activities</span></p>
           <p class="card-source"><span data-i18n="portal.cards.source-prefix">独立专题：</span><strong data-i18n="portal.cards.color-bold">颜色是可视化基础</strong></p>
           <p class="card-desc" data-i18n="card-03.desc">颜色模型 + colormap + Lab 色域 + 5 大色系 + 经典科研配色 + 对错案例 + 鲜艳+低饱和哲学生成器 + CVD 论文图测。8 小节，配色一站式。</p>
           <ul class="card-tags" data-tags="card-03.tags"><li>4 颜色空间 + CVD</li><li>Wong / Paul Tol</li><li>5 大色系规则</li><li>鲜艳+低饱和</li><li>CVD 论文图测</li></ul>
@@ -122,10 +135,10 @@
             <circle cx="162" cy="30" r="4.5" fill="#fdba74"/>
             <circle cx="194" cy="24" r="4.5" fill="#fdba74"/>
           </svg>
-          <div class="card-status" data-i18n="common.live">✅ 已上线</div>
+          <div class="card-status" data-i18n="common.live">可学习</div>
           <div class="card-num" data-i18n="card-04.num">第 4 章</div>
           <h3 data-i18n="card-04.title">低维数据可视化</h3>
-          <p class="card-meta"><span data-lang="zh-CN">5 小节 · 3 tab</span><span data-lang="en-US" hidden>5 sections · 3 tabs</span></p>
+          <p class="card-meta"><span data-lang="zh-CN">5 小节 · 3 个学习环节</span><span data-lang="en-US" hidden>5 sections · 3 learning activities</span></p>
           <p class="card-source"><span data-i18n="common.maps-to">对应你的文档：</span><strong>5. 低维数据可视化</strong></p>
           <p class="card-desc" data-i18n="card-04.desc">Crime 数据坐标变换、10 种曲线拟合、Cleveland 45° 倾角、Marching Squares 等值线，共 5 小节。</p>
           <ul class="card-tags" data-tags="card-04.tags"><li>三层坐标变换</li><li>10 种曲线</li><li>Cleveland 45°</li><li>Marching Squares</li></ul>
@@ -142,10 +155,10 @@
             <rect x="154" y="24" width="12" height="36" rx="3" fill="#059669"/>
             <path d="M20 70 q22 -14 44 0 t44 0 t44 0 t44 0" fill="none" stroke="#6ee7b7" stroke-width="2"/>
           </svg>
-          <div class="card-status" data-i18n="common.live">✅ 已上线</div>
+          <div class="card-status" data-i18n="common.live">可学习</div>
           <div class="card-num" data-i18n="card-05.num">第 5 章</div>
           <h3 data-i18n="card-05.title">时序数据可视化</h3>
-          <p class="card-meta"><span data-lang="zh-CN">5 小节 · 3 tab</span><span data-lang="en-US" hidden>5 sections · 3 tabs</span></p>
+          <p class="card-meta"><span data-lang="zh-CN">5 小节 · 3 个学习环节</span><span data-lang="en-US" hidden>5 sections · 3 learning activities</span></p>
           <p class="card-source"><span data-i18n="common.maps-to">对应你的文档：</span><strong>6. 时序数据可视化</strong></p>
           <p class="card-desc" data-i18n="card-05.desc">5 个时间属性、法国人名时间序列、van Wijk 日历热图、阿基米德螺旋日历、Storyline 故事线（《侏罗纪公园》案例）。</p>
           <ul class="card-tags" data-tags="card-05.tags"><li>时间分解</li><li>日历 colormap</li><li>极坐标变换</li><li>Storygraph</li></ul>
@@ -160,6 +173,6 @@
     <p class="footer-meta" data-i18n="footer.meta">零依赖 · D3.js v7 · 部署于 WorkBuddy Sites</p>
   </footer>
 
-  <script src="assets/portal.js?v=3"></script>
+  <script src="assets/portal.js?v=5"></script>
 </body>
 </html>
