@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="portal.title">《可视化导论》课程门户</title>
   <script src="assets/theme.js?v=3"></script>
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="stylesheet" href="i18n.css" />
   <script type="module" src="i18n.js?v=5"></script>
 </head>
@@ -46,7 +46,7 @@
         <h1 id="hero-title"><span data-lang="zh-CN">把数据，变成<br><em>看得懂的故事。</em></span><span data-lang="en-US" hidden>Turn data into<br><em>stories people understand.</em></span></h1>
         <p class="hero-desc"><span data-lang="zh-CN">一门从数据基础到 D3.js 实战的可视化课程。沿着清晰的学习路径，理解为什么这样设计，并亲手把图表做出来。</span><span data-lang="en-US" hidden>A hands-on journey from data foundations to D3.js. Learn why visualizations work, then build them yourself.</span></p>
         <div class="hero-actions"><a class="hero-primary" href="chapters.html"><span data-lang="zh-CN">开始学习</span><span data-lang="en-US" hidden>Start learning</span><span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#map"><span data-lang="zh-CN">查看学习路径</span><span data-lang="en-US" hidden>View the path</span></a></div>
-        <div class="hero-proof"><span class="proof-avatars"><i>01</i><i>02</i><i>03</i></span><span data-lang="zh-CN">5 个章节 · 27 个小节 · 可运行演示</span><span data-lang="en-US" hidden>5 chapters · 27 sections · Runnable demos</span></div>
+        <div class="hero-proof"><span class="proof-avatars"><i>01</i><i>02</i><i>03</i></span><span id="course-facts" class="hero-facts">5 个章节 · 27 个小节 · 可运行演示</span></div>
       </div>
       <div class="hero-visual" aria-label="课程学习流程">
         <div class="learning-flow">
@@ -58,6 +58,23 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ 继续上次学习 ============ -->
+    <section class="section continue-wrap" aria-labelledby="continue-heading">
+      <div class="pt-continue" id="continue-card" hidden>
+        <div class="pt-continue-copy">
+          <p class="section-kicker pt-continue-kicker" id="continue-heading">继续上次学习</p>
+          <h2 class="pt-continue-title">第 1 章 · 1.1 数据生成</h2>
+          <p class="pt-continue-hint">从上次离开的小节接着学。</p>
+          <p class="pt-continue-meta"></p>
+        </div>
+        <div class="pt-continue-side">
+          <div class="pt-continue-bar" aria-hidden="true"><i class="pt-continue-fill"></i></div>
+          <a class="pt-continue-link" href="lesson-01/">继续学习 →</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ 课程知识地图 ============ -->
     <section id="map" class="section">
       <p class="section-kicker"><span data-lang="zh-CN">课程结构</span><span data-lang="en-US" hidden>COURSE STRUCTURE</span></p>
@@ -77,6 +94,9 @@
     <p class="footer-meta" data-i18n="footer.meta">零依赖 · D3.js v7 · 部署于 WorkBuddy Sites</p>
   </footer>
 
-  <script src="assets/portal.js?v=5"></script>
+  <script src="assets/course-config.js?v=7"></script>
+  <script src="assets/course-store.js?v=7"></script>
+  <script src="assets/course-search.js?v=7"></script>
+  <script src="assets/portal.js?v=7"></script>
 </body>
 </html>

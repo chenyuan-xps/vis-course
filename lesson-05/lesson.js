@@ -27,6 +27,14 @@ function __renderDemo(mount) {
   const fn = (window.DEMOS && window.DEMOS[name]) || (typeof DEMOS !== "undefined" && DEMOS[name]);
   if (fn) { fn(mount); mount.dataset.rendered = "1"; }
 }
+// 学习工具：重置演示（enhance.js 的「重置演示」按钮调用）
+window.__lessonDemoReset = function (mount) {
+  if (!mount) return false;
+  mount.removeAttribute("data-rendered");
+  mount.innerHTML = "";
+  __renderDemo(mount);
+  return true;
+};
 function __renderAllDemos() {
   document.querySelectorAll(".demo-mount, [id^='demo-mount-']").forEach(__renderDemo);
 }
@@ -115,7 +123,7 @@ window.DEMOS["d-5-1"] = async function (mount) {
     <p class="demo-hint">点每张卡片 → 显示详细解释 + 影响哪些可视化设计。设计时序图前先确认这 5 个属性。</p>
     <div class="attr-grid" id="attr-grid"></div>
     <div class="attr-detail" id="attr-detail" style="margin-top:14px;">
-      <p style="color:#94a3b8;font-size:13px;">↑ 点卡片查看详情</p>
+      <p style="color:#5f6d7a;font-size:13px;">↑ 点卡片查看详情</p>
     </div>
   `;
 
@@ -125,7 +133,7 @@ window.DEMOS["d-5-1"] = async function (mount) {
   function renderDetail(attr) {
     detail.innerHTML = `
       <div class="attr-detail-card" style="border-left:4px solid ${attr.color};">
-        <h4>${attr.icon} ${attr.name} <small style="font-size:11px;color:#94a3b8;font-weight:400">key: ${attr.key}</small></h4>
+        <h4>${attr.icon} ${attr.name} <small style="font-size:11px;color:#5f6d7a;font-weight:400">key: ${attr.key}</small></h4>
         <p style="margin:6px 0 10px;color:#334155;line-height:1.7;">${attr.desc}</p>
         <div class="example">
           <strong>实际例子：</strong> ${attr.example}

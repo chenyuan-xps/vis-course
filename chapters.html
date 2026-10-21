@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="portal.tagline">课程章节</title>
   <script src="assets/theme.js?v=3"></script>
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="stylesheet" href="i18n.css" />
   <script type="module" src="i18n.js?v=5"></script>
 </head>
@@ -54,6 +54,35 @@
       </div>
     </section>
 
+    <!-- ============ 学习档案：进度 / 继续 / 清单 / 导入导出 ============ -->
+    <section class="section pt-study" id="study-panel" aria-labelledby="study-title">
+      <div class="pt-study-head">
+        <div>
+          <p class="section-kicker"><span data-lang="zh-CN">学习档案</span><span data-lang="en-US" hidden>STUDY RECORD</span></p>
+          <h2 class="pt-study-title" id="study-title">我的学习清单</h2>
+          <p class="pt-study-sub">学习记录保存在本机浏览器，可导出为 JSON 备份。</p>
+        </div>
+        <div class="pt-study-actions">
+          <a class="pt-study-continue" hidden href="lesson-01/">继续学习 →</a>
+          <button class="pt-export" type="button">导出学习记录</button>
+          <button class="pt-import" type="button">导入学习记录</button>
+          <input class="pt-file" type="file" accept=".json,application/json" hidden />
+        </div>
+      </div>
+      <div class="pt-overview">
+        <div class="pt-stat"><b id="study-done">0</b><span data-lang="zh-CN">已完成</span><span data-lang="en-US" hidden>completed</span></div>
+        <div class="pt-stat"><b id="study-learning">0</b><span data-lang="zh-CN">学习中</span><span data-lang="en-US" hidden>in progress</span></div>
+        <div class="pt-stat"><b id="study-total">27</b><span data-lang="zh-CN">总小节</span><span data-lang="en-US" hidden>sections</span></div>
+        <div class="pt-overview-bar" aria-hidden="true"><i id="study-fill"></i></div>
+      </div>
+      <div class="pt-marks-head">
+        <h3 id="study-marks-title">我的学习清单</h3>
+        <select class="pt-filter" aria-label="按章节筛选收藏"></select>
+      </div>
+      <ul class="pt-marks" id="study-marks"></ul>
+      <p class="pt-import-msg" hidden></p>
+    </section>
+
     <section id="catalog" class="section">
       <div class="catalog-heading"><h3><span data-lang="zh-CN">章节目录</span><span data-lang="en-US" hidden>Chapter catalog</span></h3><p><span data-lang="zh-CN">每章包含讲解、代码与演示</span><span data-lang="en-US" hidden>Each chapter includes concepts, code, and practice</span></p></div>
 
@@ -81,17 +110,17 @@
         <!-- 第 2 章：流程 -->
         <a class="card available" href="lesson-02/" data-ch="2">
           <svg class="card-thumb" viewBox="0 0 220 84" aria-hidden="true">
-            <line x1="46" y1="20" x2="104" y2="44" stroke="#ddd6fe" stroke-width="2"/>
-            <line x1="46" y1="20" x2="104" y2="70" stroke="#ddd6fe" stroke-width="2"/>
-            <line x1="104" y1="44" x2="168" y2="28" stroke="#ddd6fe" stroke-width="2"/>
-            <line x1="104" y1="44" x2="168" y2="58" stroke="#ddd6fe" stroke-width="2"/>
-            <line x1="104" y1="70" x2="168" y2="74" stroke="#ddd6fe" stroke-width="2"/>
-            <circle cx="46" cy="20" r="11" fill="#7c3aed"/>
-            <circle cx="104" cy="44" r="8" fill="#8b5cf6"/>
-            <circle cx="104" cy="70" r="8" fill="#8b5cf6"/>
-            <circle cx="168" cy="28" r="6" fill="#a78bfa"/>
-            <circle cx="168" cy="58" r="6" fill="#a78bfa"/>
-            <circle cx="168" cy="74" r="6" fill="#a78bfa"/>
+            <line x1="46" y1="20" x2="104" y2="44" stroke="#d5ecf3" stroke-width="2"/>
+            <line x1="46" y1="20" x2="104" y2="70" stroke="#d5ecf3" stroke-width="2"/>
+            <line x1="104" y1="44" x2="168" y2="28" stroke="#d5ecf3" stroke-width="2"/>
+            <line x1="104" y1="44" x2="168" y2="58" stroke="#d5ecf3" stroke-width="2"/>
+            <line x1="104" y1="70" x2="168" y2="74" stroke="#d5ecf3" stroke-width="2"/>
+            <circle cx="46" cy="20" r="11" fill="#0e7490"/>
+            <circle cx="104" cy="44" r="8" fill="#2296b8"/>
+            <circle cx="104" cy="70" r="8" fill="#2296b8"/>
+            <circle cx="168" cy="28" r="6" fill="#5cc0d8"/>
+            <circle cx="168" cy="58" r="6" fill="#5cc0d8"/>
+            <circle cx="168" cy="74" r="6" fill="#5cc0d8"/>
           </svg>
           <div class="card-status" data-i18n="common.live">可学习</div>
           <div class="card-num" data-i18n="card-02.num">第 2 章</div>
@@ -110,7 +139,7 @@
             <circle cx="112" cy="46" r="30" fill="#dc2626" opacity="0.72"/>
             <circle cx="92" cy="22" r="30" fill="#16a34a" opacity="0.72"/>
             <rect x="156" y="14" width="15" height="62" rx="4" fill="#f59e0b"/>
-            <rect x="175" y="14" width="15" height="62" rx="4" fill="#8b5cf6"/>
+            <rect x="175" y="14" width="15" height="62" rx="4" fill="#2296b8"/>
             <rect x="194" y="14" width="15" height="62" rx="4" fill="#06b6d4"/>
           </svg>
           <div class="card-status" data-i18n="common.live">可学习</div>
@@ -126,14 +155,14 @@
         <!-- 第 4 章：低维数据可视化 -->
         <a class="card available" href="lesson-04/" data-ch="4">
           <svg class="card-thumb" viewBox="0 0 220 84" aria-hidden="true">
-            <path d="M12 72 Q62 22 112 48 T212 18" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
-            <path d="M20 80 C60 62 92 76 132 64 S192 68 210 60" fill="none" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <circle cx="32" cy="58" r="4.5" fill="#fdba74"/>
-            <circle cx="64" cy="34" r="4.5" fill="#fdba74"/>
-            <circle cx="96" cy="46" r="4.5" fill="#fdba74"/>
-            <circle cx="130" cy="42" r="4.5" fill="#fdba74"/>
-            <circle cx="162" cy="30" r="4.5" fill="#fdba74"/>
-            <circle cx="194" cy="24" r="4.5" fill="#fdba74"/>
+            <path d="M12 72 Q62 22 112 48 T212 18" fill="none" stroke="#256b80" stroke-width="3" stroke-linecap="round"/>
+            <path d="M20 80 C60 62 92 76 132 64 S192 68 210 60" fill="none" stroke="#4a97ad" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <circle cx="32" cy="58" r="4.5" fill="#8dc0cf"/>
+            <circle cx="64" cy="34" r="4.5" fill="#8dc0cf"/>
+            <circle cx="96" cy="46" r="4.5" fill="#8dc0cf"/>
+            <circle cx="130" cy="42" r="4.5" fill="#8dc0cf"/>
+            <circle cx="162" cy="30" r="4.5" fill="#8dc0cf"/>
+            <circle cx="194" cy="24" r="4.5" fill="#8dc0cf"/>
           </svg>
           <div class="card-status" data-i18n="common.live">可学习</div>
           <div class="card-num" data-i18n="card-04.num">第 4 章</div>
@@ -173,6 +202,9 @@
     <p class="footer-meta" data-i18n="footer.meta">零依赖 · D3.js v7 · 部署于 WorkBuddy Sites</p>
   </footer>
 
-  <script src="assets/portal.js?v=5"></script>
+  <script src="assets/course-config.js?v=7"></script>
+  <script src="assets/course-store.js?v=7"></script>
+  <script src="assets/course-search.js?v=7"></script>
+  <script src="assets/portal.js?v=7"></script>
 </body>
 </html>

@@ -30,6 +30,14 @@ function __renderDemo(mount) {
   const fn = (window.DEMOS && window.DEMOS[name]) || (typeof DEMOS !== "undefined" && DEMOS[name]);
   if (fn) { fn(mount); mount.dataset.rendered = "1"; }
 }
+// 学习工具：重置演示（enhance.js 的「重置演示」按钮调用）
+window.__lessonDemoReset = function (mount) {
+  if (!mount) return false;
+  mount.removeAttribute("data-rendered");
+  mount.innerHTML = "";
+  __renderDemo(mount);
+  return true;
+};
 function __renderAllDemos() {
   document.querySelectorAll(".demo-mount, [id^='demo-mount-']").forEach(__renderDemo);
 }
@@ -806,9 +814,9 @@ window.DEMOS["d-3-8"] = async function (mount) {
     card.innerHTML = `
       <h5>${p.name}</h5>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:9px;">
-        <div><div style="color:#94a3b8;margin-bottom:2px">正常</div>${original}</div>
-        <div><div style="color:#94a3b8;margin-bottom:2px">红盲</div>${prota}</div>
-        <div><div style="color:#94a3b8;margin-bottom:2px">绿盲</div>${deuta}</div>
+        <div><div style="color:#5f6d7a;margin-bottom:2px">正常</div>${original}</div>
+        <div><div style="color:#5f6d7a;margin-bottom:2px">红盲</div>${prota}</div>
+        <div><div style="color:#5f6d7a;margin-bottom:2px">绿盲</div>${deuta}</div>
       </div>
     `;
     papers.appendChild(card);

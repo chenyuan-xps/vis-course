@@ -17,7 +17,7 @@
   --surface-2: #f3f5fb;
   --text:      #0e1526;
   --text-2:    #44506a;
-  --muted:     #6c7a94;
+  --muted:     #5a6880;
   --line:      #e5e9f2;
   --line-2:    #eff2f8;
 
@@ -53,12 +53,7 @@ html[data-theme="dark"] {
   --sh-3: 0 14px 34px rgba(0, 0, 0, .45);
 }
 
-/* 暗色下把各章主题色提亮，保证在深底上的可读性 */
-html[data-theme="dark"] body[data-chapter="1"] { --ls-accent:#6aa4ff; --ls-accent-deep:#9ec2ff; --ls-accent-soft:#16233f; --ls-accent-tint:#111a2c; --ls-accent-ring:rgba(106,164,255,.22); }
-html[data-theme="dark"] body[data-chapter="2"] { --ls-accent:#b394ff; --ls-accent-deep:#cdb6ff; --ls-accent-soft:#211a3d; --ls-accent-tint:#171232; --ls-accent-ring:rgba(179,148,255,.22); }
-html[data-theme="dark"] body[data-chapter="3"] { --ls-accent:#ff7ab8; --ls-accent-deep:#ffa8d0; --ls-accent-soft:#3a1630; --ls-accent-tint:#2a1024; --ls-accent-ring:rgba(255,122,184,.22); }
-html[data-theme="dark"] body[data-chapter="4"] { --ls-accent:#ff9a52; --ls-accent-deep:#ffbd8f; --ls-accent-soft:#3a2110; --ls-accent-tint:#2b180c; --ls-accent-ring:rgba(255,154,82,.22); }
-html[data-theme="dark"] body[data-chapter="5"] { --ls-accent:#4fd3a5; --ls-accent-deep:#8ee6c4; --ls-accent-soft:#10322a; --ls-accent-tint:#0c241e; --ls-accent-ring:rgba(79,211,165,.22); }
+/* 全站统一强调色由 enhance.css 的 :root 提供；不再按章覆盖。 */
 
 /* ============================================================
  * 2. 基础
@@ -361,17 +356,6 @@ html[data-theme="dark"] .course-topbar .lang-switch button.active { background: 
 }
 .ls-footnav button:disabled { opacity: .35; cursor: not-allowed; }
 .ls-idx { font-size: 13px; font-weight: 600; color: var(--muted); }
-
-/* 回到顶部 */
-.ls-top {
-  width: 42px;
-  height: 42px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--ls-accent, #5b5bd6);
-  box-shadow: var(--sh-2);
-}
-.ls-top:hover { background: var(--ls-accent-tint, #f3f5fb); }
 
 /* ============================================================
  * 6. 主体网格 + 侧栏目录

@@ -38,6 +38,14 @@ function __renderDemo(mount) {
       mount.innerHTML = `<div class="demo-error"><strong>Demo ${name} 跑不起来：</strong><pre>${msg.replace(/[<&>]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]))}</pre></div>`;
     });
 }
+// 学习工具：重置演示（enhance.js 的「重置演示」按钮调用）
+window.__lessonDemoReset = function (mount) {
+  if (!mount) return false;
+  mount.removeAttribute("data-rendered");
+  mount.innerHTML = "";
+  __renderDemo(mount);
+  return true;
+};
 function __renderAllDemos() {
   document.querySelectorAll(".demo-mount, [id^='demo-mount-']").forEach(__renderDemo);
 }
@@ -372,7 +380,7 @@ window.DEMOS["d-4-4"] = async function (mount) {
     svg.append("line").attr("x1", rx1).attr("y1", ry1).attr("x2", rx2).attr("y2", ry2)
       .attr("stroke", "#cbd5e1").attr("stroke-width", 1).attr("stroke-dasharray", "4 4");
     svg.append("text").attr("x", rx2 + 8).attr("y", ry2 + 4)
-      .attr("font-size", 11).attr("fill", "#94a3b8").text("45° 参考");
+      .attr("font-size", 11).attr("fill", "#5f6d7a").text("45° 参考");
 
     const [x1, y1, x2, y2] = line(angle);
     svg.append("line").attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2)

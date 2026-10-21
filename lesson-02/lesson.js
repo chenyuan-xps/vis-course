@@ -1,4 +1,4 @@
-// lesson.js —— Doc-02 集成教学页面交互逻辑
+﻿// lesson.js —— Doc-02 集成教学页面交互逻辑
 // 1) 章节切换  2) Tab 切换  3) 4 个 Demo 注入
 
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
@@ -43,6 +43,14 @@ function __renderDemo(mount) {
   const fn = (window.DEMOS && window.DEMOS[name]) || (typeof DEMOS !== "undefined" && DEMOS[name]);
   if (fn) { fn(mount); mount.dataset.rendered = "1"; }
 }
+// 学习工具：重置演示（enhance.js 的「重置演示」按钮调用）
+window.__lessonDemoReset = function (mount) {
+  if (!mount) return false;
+  mount.removeAttribute("data-rendered");
+  mount.innerHTML = "";
+  __renderDemo(mount);
+  return true;
+};
 function __renderAllDemos() {
   document.querySelectorAll(".demo-mount, [id^='demo-mount-']").forEach(__renderDemo);
 }
